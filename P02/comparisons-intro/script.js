@@ -89,13 +89,13 @@ console.log(isEven2(1));
 function isOfAge2(num2){
     if(num2 >= 20){
         console.log("成人！お酒を飲めます！！");
-        return true;
+        //return true;
     }
     else {
         console.log("未成年！お酒は飲めません！！");
-        return false;
+        //return false;
     }
 }
-console.log(isOfAge2(20));
-console.log(isOfAge2(17));
-console.log(isOfAge2(80));
+isOfAge2(20);
+isOfAge2(17);
+isOfAge2(80);
