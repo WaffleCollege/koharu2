@@ -41,13 +41,11 @@ testArray(numberOfPeople(["koharu"]), 0);
  */
 // ここにコードを書きましょう
 function hiInTheMiddle(array){
-    if  (Number.isInteger(array.length / 2)) {
-        return array;
-    } else {
+    if (array.length % 2 === 1) {
         let i = (array.length - 1)/ 2;
         array[i] = "hi";
-        return array;
     }
+    return array;
 }
 
 

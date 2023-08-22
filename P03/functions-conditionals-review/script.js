@@ -63,6 +63,8 @@ test(actual, expected);
 // ここにコードを書きましょう
 function isOddWithoutIf(number2){
     return Number.isInteger((number2 + 1) / 2);
+    //console.log(typeof number2);
+    //return number2 % 2 === 1;
 }
 
 actual = isOddWithoutIf(3);
