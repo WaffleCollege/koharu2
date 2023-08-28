@@ -20,6 +20,8 @@ function test(actual, expected) {
 * @returns {boolean} 与えられた配列の要素が重複を含んでいないかを表すブーリアン
 */
 
+
+//マージソート
 function merge_sort(arr){
     if(arr.length === 1) { //配列の長さが1
         return arr;
@@ -66,3 +68,32 @@ function haveMultipleElements(array) {
 // テストを実行
 test(haveMultipleElements([1, 2, 3, 4]), true);
 test(haveMultipleElements([1, 3, 3, 4]), false);
+
+//問題2
+//2つの自然数の最大公約数を求める関数findGCM
+/**
+* @param {num} num1 - 整数
+* @param {num} num2 - 整数
+* @returns {num} 2数の最大公約数
+*/
+
+function findGCM(num1,num2){
+    if(num1 < num2){ //自然数num1 > num2を確認
+        let copy = num1;
+        num1 = num2;
+        num2 = copy;
+    }
+
+    let r = num2 % num1;
+    while(r != 0){
+        num2 = num1;
+        num1 = r;
+        r = num2 % num1;
+    }
+    return num1;
+
+}
+
+test(findGCM(8,6),2);
+test(findGCM(65,26),13);
+test(findGCM(2,3),1);
