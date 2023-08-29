@@ -159,3 +159,6 @@ function JankenGame(player){
 
 //テスト
 JankenGame(player);
+
+
+//問題4
