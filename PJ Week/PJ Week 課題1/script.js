@@ -72,9 +72,9 @@ test(haveMultipleElements([1, 3, 3, 4]), false);
 //問題2
 //2つの自然数の最大公約数を求める関数findGCM
 /**
-* @param {num} num1 - 整数
-* @param {num} num2 - 整数
-* @returns {num} 2数の最大公約数
+* @param {int} num1 - 整数
+* @param {int} num2 - 整数
+* @returns {int} 2数の最大公約数
 */
 
 function findGCM(num1,num2){
@@ -97,3 +97,65 @@ function findGCM(num1,num2){
 test(findGCM(8,6),2);
 test(findGCM(65,26),13);
 test(findGCM(2,3),1);
+
+
+//問題3
+const hands = new Array("パー", "グー", "チョキ");
+const player = "パー"
+
+/**
+ * @param {int} min - ランダムで出したい値の最小値
+ * @param {int} max - ランダムで出したい値の最大値より1つ大きい値
+ * @returns {int}} min 以上 max 未満 の整数値を「ランダムで」出力
+*/
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+}
+
+// 1つめの引数を0, 2つ目の引数を3とすると, 0から2の整数がランダムで出力される
+//console.log(getRandomInt(0, 3));
+
+// 上記のgetRandomInt関数と、配列 hands を生かしてジャンケンゲームを作成してみましょう！
+
+
+
+//じゃんけん関数
+/**
+ * @param {String} player - 人間の出す手
+ * 
+ * @returns {String} "勝ち" or "負け"
+ */
+
+
+function JankenGame(player){
+    //人間の出す手を記録
+    const i = hands.indexOf(player);
+    //コンピュータの出す手を記録
+    const j = getRandomInt(0,3);
+
+    //勝ち
+    const winConditions = [[0,1], [1,2], [2,0]];
+    //負け
+    const loseConditions = [[0,2], [1,0], [2,1]];
+    //あいこ 使わないけど一応定義
+    const stalemateConditions = [[0,0], [1,1], [2,2]];
+
+
+    if( winConditions.some(([a,b]) => a === i && b === j) ) { //勝ち
+        console.log("you win!");
+    }else if( loseConditions.some(([a,b]) => a === i && b === j) ){ //負け
+        console.log("you lose!");
+    }else{ //あいこ
+        console.log("stalemate!")
+    }
+
+    console.log("you : " + hands[i]);
+    console.log("computer : " + hands[j]);
+
+}
+
+//テスト
+JankenGame(player);
