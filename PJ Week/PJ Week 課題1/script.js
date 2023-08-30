@@ -162,3 +162,19 @@ JankenGame(player);
 
 
 //問題4
+// ここに関数を作成しましょう。
+/**
+* @param {Array<any>} ??? - 配列
+* @returns {Array} 与えられた全ての配列の要素を要素として持つ配列
+*/
+
+function flatten(array){
+    return array.reduce((acc, val) => acc.concat(val),[]); //acc:アキュムレーターでそれに各要素をconcatしていく
+}
+
+console.log(flatten([[1, 2, 3],[4, 5, 6]]));
+// [1, 2, 3, 4, 5, 6]
+
+console.log(flatten([1, 2, 3, [4, 5, 6]])); // [1, 2, 3, 4, 5, 6]
+
+console.log(flatten([[1], [2], [3], [4, 5, 6]])); // [1, 2, 3, 4, 5, 6]
