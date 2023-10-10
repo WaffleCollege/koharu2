@@ -49,19 +49,19 @@ function getOperatedArray(arr,operator,num) {
     // ここにコードを書きましょう。
     const answerArr = [];
     for (const element of arr){
-        if(operator == "+"){
+        if(operator === "+"){
             answerArr.push(element + num);
         }
-        else if(operator == "-"){
+        else if(operator === "-"){
             answerArr.push(element - num);
         }
-        else if(operator == "*"){
+        else if(operator === "*"){
             answerArr.push(element * num);
         }
-        else if(operator == "/"){
+        else if(operator === "/"){
             answerArr.push(element / num);
         }
-        else if(operator == "**"){
+        else if(operator === "**"){
             answerArr.push(element ** num);
         }
         else{
