@@ -10,7 +10,7 @@
 // ここにコードを書きましょう
 
 function isLongerThan(str,num){
-    return str.length >= num;
+    return str.length > num;
 }
 
 isLongerThan("komatsuna", 10); //false
