@@ -9,35 +9,38 @@ class TreeNode {
 }
 
 function invertTree(root){
-    if(root === null){
-        return null;
-    }
-
-    let leftCopy = root.left;
-    root.left = root.right;
-    root.right = leftCopy;
-    // 入れ替え
-
-    invertTree(root.left);
-    invertTree(root.right);
-    // 再起的に呼び出し
-
-    return root;
+  // base case
+  if(root === null){
+    return null;
+  }
+  
+  let leftCopy = root.left;
+  root.left = root.right;
+  root.right = leftCopy; // 入れ替え
+  
+  invertTree(root.left);
+  invertTree(root.right); // 再起的に呼び出し
+  
+  return root;
 }
 
-const root1 = new TreeNode(1);
-root1.left = new TreeNode(2);
-root1.right = new TreeNode(3);
-
 function printTree(root) {
-    if (root) {
-      console.log(root.val);
-      printTree(root.left);
-      printTree(root.right);
-    }
+  if (root) {
+    console.log(root.val);
+    printTree(root.left);
+    printTree(root.right);
   }
+}
 
 
-const root2 = invertTree(root1);
+//テスト1
+const root11 = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+const root12 = invertTree(root11);
+printTree(root12);
 
-printTree(root2);
+const root21 = new TreeNode(4, 
+  new TreeNode(3, new TreeNode(2), new TreeNode(1)), 
+  new TreeNode(5, new TreeNode(1), new TreeNode(4)));
+const root22 = invertTree(root21);
+printTree(root22);
+
