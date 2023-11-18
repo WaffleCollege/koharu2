@@ -100,22 +100,67 @@ console.log(maxPrimeFactor(600851475143));
 // 2520 は 1 から 10 の数字の全ての整数で割り切れる数字であり、そのような数字の中では最小の値です。
 // では、1 から 20 までの整数全てで割り切れる数字の中で最小の正の数はいくらになりますか？
 
+// //階乗を求める
+// function kaijou(n){
+//     if(n===1){
+//         return 1;
+//     }
+//     else{
+//         return n*kaijou(n-1);
+//     }
+// }
 
-function soinsubunkai(n){
-    const soinsuList = [];
-    let devisor = 2;
-    while(n > 1){
-        if(n%devisor === 0){
-            soinsuList.push(devisor);
-            while(n%devisor === 0){
-                n = n / devisor;
-            }
-        }devisor++;
-    }
-    return soinsuList;
+// console.log(kaijou(4));
+// //console.log(kaijou(10));
+
+// //解法1
+// function minTimesNum(n){
+//     let num = n;
+//     while(num<kaijou(n)){
+//         let isDivisible = true;
+//         for(let i=2; i<=n; i++){
+//             if(num%i !== 0){
+//                 isDivisible = false;
+//                 break;}
+//         }
+//         if(isDivisible){
+//             return num;
+//         }
+//         num++;
+//     }
+// }
+
+// console.log(minTimesNum(10));
+
+//解法2
+//最小公倍数を求める
+function lcm(x, y){
+    return (x * y) / gcd(x, y);
 }
 
-console.log(soinsubunkai(10));
-console.log(soinsubunkai(24));
+//最大公約数を求める
+function gcd(x, y){
+    if(x > y){
+        let temp = y;
+        y = x;
+        x = temp;
+    }
+    while(x !== 0){
+        let temp2 = y;
+        y = x;
+        x = temp2 % x;
+    }
+    return y;
 
+}
 
+//1からnまでの整数の最小公倍数を求める
+function smallestMultiple(n){
+    let multiple = 1;
+    for(let i = 2; i <= n; i++){
+        multiple = lcm(multiple, i);
+    }
+    return multiple;
+}
+
+console.log(smallestMultiple(10));
