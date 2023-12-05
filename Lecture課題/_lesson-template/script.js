@@ -29,6 +29,10 @@ function giveBonusPoints(numArr){
     });
 }
 
+// function giveBonusPoints(arr){
+//     return arr.map((num) => Math.min(num+20,100));
+// }
+
 const points = [10, 60, 20];
 const points2 = [10, 90, 85];
 
