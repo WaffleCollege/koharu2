@@ -164,3 +164,4 @@ function smallestMultiple(n){
 }
 
 console.log(smallestMultiple(10));
+console.log(smallestMultiple(20));

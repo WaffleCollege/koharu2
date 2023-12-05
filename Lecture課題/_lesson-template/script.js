@@ -42,12 +42,10 @@ test(giveBonusPoints(points2), [30, 100, 100]);
 	* @returns {Array<string>} 与えられた配列の中にある、Level45以上のPokemonオブジェクトのみを要素として持つ配列
 	*/
 // ここにコードを書きましょう
-function getStrongPokemon(list){
-    const pokemon = list.filter((pokemonName) => {
-        return pokemonName["level"] >= 45;
-    });
-    return pokemon;
-}
+const getStrongPokemon = (list) => 
+    list.filter( pokemonName => pokemonName["level"] >= 45 );
+
+//アロー関数:returnなし={}いらない！
 
 const pikachu = {"name": "Pikachu", "level": 24};
 const hitokage = {"name": "Hitokage", "level": 50};
