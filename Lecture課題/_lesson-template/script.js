@@ -21,7 +21,7 @@ function test(actual, expected) {
    // ここにコードを書きましょう
 function giveBonusPoints(numArr){
     return numArr.map((num) => {
-        if(num >= 80){
+        if(num > 80){
             return 100;
         }else{
             return num + 20;
