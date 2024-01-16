@@ -1,0 +1,10 @@
+{
+  "name": "Azuki",
+  "age": 3,
+  "breed": "mixed",
+  "friends": [
+    "Mugi", "Momo", "Tama"
+  ],
+  "stomach": null,
+  "hungry": true
+}
